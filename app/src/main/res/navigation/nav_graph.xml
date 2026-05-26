@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/navigation_exercises">
+
+    <fragment
+        android:id="@+id/navigation_exercises"
+        android:name="com.example.fitprime.ui.exercises.ExercisesFragment"
+        android:label="Ejercicios"
+        tools:layout="@layout/fragment_exercises" />
+
+    <fragment
+        android:id="@+id/navigation_timer"
+        android:name="com.example.fitprime.ui.timer.TimerFragment"
+        android:label="Cronómetro"
+        tools:layout="@layout/fragment_timer" />
+
+    <fragment
+        android:id="@+id/navigation_reports"
+        android:name="com.example.fitprime.ui.reports.ReportsFragment"
+        android:label="Reportes"
+        tools:layout="@layout/fragment_reports" />
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.example.fitprime.ui.profile.ProfileFragment"
+        android:label="Perfil"
+        tools:layout="@layout/fragment_profile" />
+</navigation>
