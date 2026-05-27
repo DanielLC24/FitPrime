@@ -1,3 +1,35 @@
 <resources>
     <string name="app_name">FitPrime</string>
+
+    <!-- Pestañas de Navegación -->
+    <string name="title_exercises">Ejercicios</string>
+    <string name="title_timer">Cronómetro</string>
+    <string name="title_reports">Reportes</string>
+    <string name="title_profile">Perfil</string>
+
+    <!-- Fragmento de Cronómetro -->
+    <string name="timer_ready">¡LISTO PARA ENTRENAR!</string>
+    <string name="timer_set_format">SERIE %1$d / %2$d</string>
+
+    <!-- Fragmento de Perfil (Métricas) -->
+    <string name="profile_personal_metrics">Métricas Personales</string>
+    <string name="profile_gender">GÉNERO</string>
+    <string name="profile_male">Masculino</string>
+    <string name="profile_female">Femenino</string>
+    <string name="profile_height_label">ESTATURA (CM)</string>
+    <string name="profile_weight_label">PESO (KG)</string>
+    <string name="profile_bmi_label">ÍNDICE DE MASA CORPORAL (IMC)</string>
+    <string name="profile_enter_data">Ingresa tus datos</string>
+
+    <!-- Categorías IMC -->
+    <string name="bmi_underweight">Bajo peso</string>
+    <string name="bmi_normal">Normal</string>
+    <string name="bmi_overweight">Sobrepeso</string>
+    <string name="bmi_obesity">Obesidad</string>
+
+    <!-- Recomendaciones IMC -->
+    <string name="rec_underweight">Te encuentras por debajo del peso ideal. Considera consultar a un nutricionista para una dieta equilibrada.</string>
+    <string name="rec_normal">¡Rango óptimo! Tu composición corporal está equilibrada. Continúa con tu rutina actual y mantente hidratado.</string>
+    <string name="rec_overweight">Te encuentras en el rango de sobrepeso. Aumentar la actividad física y una dieta balanceada pueden ayudar.</string>
+    <string name="rec_obesity">Rango de obesidad. Te recomendamos consultar con un profesional de la salud para establecer un plan saludable.</string>
 </resources>

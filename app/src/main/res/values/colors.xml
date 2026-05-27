@@ -8,4 +8,13 @@
     <color name="lime_green">#D4FF00</color>
     <color name="dark_grey">#1E1E1E</color>
     <color name="timer_grey">#2C2C2C</color>
+
+    <!-- BMI Scale Colors -->
+    <color name="bmi_underweight">#FDD835</color> <!-- Yellow -->
+    <color name="bmi_normal">#D4FF00</color> <!-- Lime Green -->
+    <color name="bmi_overweight">#FF9800</color> <!-- Orange -->
+    <color name="bmi_obesity">#F44336</color> <!-- Red -->
+
+    <color name="card_background">#1C1C1E</color>
+    <color name="input_background">#2C2C2E</color>
 </resources>
