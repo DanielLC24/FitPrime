@@ -27,23 +27,23 @@
     <!-- Contenedor del Círculo y Tiempo -->
     <FrameLayout
         android:id="@+id/timer_container"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        app:layout_constraintBottom_toTopOf="@+id/controls_container"
+        android:layout_width="280dp"
+        android:layout_height="280dp"
+        android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_status">
 
-        <!-- Círculo de fondo gris -->
+        <!-- Círculo de fondo -->
         <com.google.android.material.progressindicator.CircularProgressIndicator
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            app:indicatorSize="280dp"
-            app:trackThickness="8dp"
-            app:trackColor="@color/timer_grey"
+            app:indicatorSize="260dp"
+            app:trackThickness="10dp"
+            app:trackColor="@color/white"
             android:progress="100"
-            app:trackCornerRadius="4dp"/>
+            app:trackCornerRadius="10dp"/>
 
         <!-- Círculo de progreso Turquesa -->
         <com.google.android.material.progressindicator.CircularProgressIndicator
@@ -51,11 +51,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            app:indicatorSize="280dp"
-            app:trackThickness="8dp"
+            app:indicatorSize="260dp"
+            app:trackThickness="10dp"
             app:indicatorColor="@color/turquoise"
-            android:progress="75"
-            app:trackCornerRadius="4dp"
+            android:progress="100"
+            app:trackCornerRadius="10dp"
             app:trackColor="@android:color/transparent"/>
 
         <LinearLayout
@@ -66,22 +66,33 @@
             android:orientation="vertical">
 
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="WORK PERIOD"
+                android:textColor="@color/turquoise"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.2"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
                 android:id="@+id/tv_timer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="00:30"
+                android:text="00:45"
                 android:textColor="@color/white"
                 android:textSize="72sp"
-                android:textStyle="bold" />
+                android:fontFamily="sans-serif-light" />
 
             <TextView
                 android:id="@+id/tv_sets"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="SET 1 / 8"
+                android:text="Set 3 / 8"
                 android:textColor="@color/white"
-                android:textSize="18sp"
-                android:alpha="0.8" />
+                android:textSize="16sp"
+                android:alpha="0.7"
+                android:layout_marginTop="8dp"/>
         </LinearLayout>
 
     </FrameLayout>
@@ -91,10 +102,10 @@
         android:id="@+id/controls_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="48dp"
         android:gravity="center"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/timer_container"
+        app:layout_constraintBottom_toTopOf="@+id/card_setup"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
@@ -102,9 +113,9 @@
             android:id="@+id/btn_reset"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="24dp"
+            android:layout_marginEnd="32dp"
             android:src="@drawable/ic_reset"
-            app:backgroundTint="@color/timer_grey"
+            app:backgroundTint="#2C2C2E"
             app:fabSize="mini"
             app:tint="@color/white"
             app:elevation="0dp"
@@ -116,23 +127,111 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_play"
             app:backgroundTint="@color/turquoise"
-            app:fabCustomSize="84dp"
-            app:maxImageSize="40dp"
+            app:fabCustomSize="96dp"
+            app:maxImageSize="48dp"
             app:tint="@color/black"
-            app:elevation="8dp" />
+            app:elevation="12dp" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/btn_stop"
+            android:id="@+id/btn_skip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:src="@drawable/ic_stop"
-            app:backgroundTint="@color/timer_grey"
+            android:layout_marginStart="32dp"
+            android:src="@drawable/ic_skip_next"
+            app:backgroundTint="#2C2C2E"
             app:fabSize="mini"
             app:tint="@color/white"
             app:elevation="0dp"
             app:borderWidth="0dp"/>
 
     </LinearLayout>
+
+    <!-- Card de configuración de tiempo -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_setup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        app:cardBackgroundColor="#1C1C1E"
+        app:cardCornerRadius="24dp"
+        app:strokeWidth="0dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp">
+
+                <ImageView
+                    android:id="@+id/iv_work_icon"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_exercises"
+                    app:tint="@color/turquoise"
+                    android:layout_centerVertical="true"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/iv_work_icon"
+                    android:layout_marginStart="12dp"
+                    android:text="Work Time"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_centerVertical="true"/>
+
+                <TextView
+                    android:id="@+id/tv_work_time_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text="45s"
+                    android:textColor="@color/turquoise"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_centerVertical="true"/>
+
+            </RelativeLayout>
+
+            <com.google.android.material.slider.Slider
+                android:id="@+id/slider_work_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:valueFrom="5"
+                android:valueTo="300"
+                android:value="45"
+                app:thumbColor="@color/turquoise"
+                app:trackColorActive="@color/turquoise"
+                app:trackColorInactive="#2C2C2E"
+                app:haloColor="#3300E5FF"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="5S"
+                    android:textColor="#80FFFFFF"
+                    android:textSize="10sp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text="5M"
+                    android:textColor="#80FFFFFF"
+                    android:textSize="10sp"/>
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
