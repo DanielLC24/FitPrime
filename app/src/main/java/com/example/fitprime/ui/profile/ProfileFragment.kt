@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.example.fitprime.R
+import com.example.fitprime.data.DatabaseHelper
 import com.example.fitprime.databinding.FragmentProfileBinding
 import java.util.Locale
 
@@ -18,6 +19,7 @@ class ProfileFragment : Fragment() {
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
 
+    private lateinit var dbHelper: DatabaseHelper
     private var isMale = true
 
     override fun onCreateView(
@@ -31,21 +33,40 @@ class ProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        dbHelper = DatabaseHelper(requireContext())
 
+        loadSavedMetrics()
         setupGenderButtons()
         setupTextWatchers()
+    }
+
+    private fun loadSavedMetrics() {
+        val (savedHeight, savedWeight, savedGender) = dbHelper.getMetrics()
+        isMale = savedGender
+        
+        if (savedHeight > 0) {
+            binding.etHeight.setText(if (savedHeight % 1.0 == 0.0) savedHeight.toInt().toString() else savedHeight.toString())
+        }
+        if (savedWeight > 0) {
+            binding.etWeight.setText(if (savedWeight % 1.0 == 0.0) savedWeight.toInt().toString() else savedWeight.toString())
+        }
+        
+        updateGenderUI()
+        calculateBMI()
     }
 
     private fun setupGenderButtons() {
         binding.btnMale.setOnClickListener {
             isMale = true
             updateGenderUI()
+            saveCurrentMetrics()
         }
         binding.btnFemale.setOnClickListener {
             isMale = false
             updateGenderUI()
+            saveCurrentMetrics()
         }
-        updateGenderUI() // Estado inicial
+        updateGenderUI()
     }
 
     private fun updateGenderUI() {
@@ -80,11 +101,18 @@ class ProfileFragment : Fragment() {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 calculateBMI()
+                saveCurrentMetrics()
             }
             override fun afterTextChanged(s: Editable?) {}
         }
         binding.etHeight.addTextChangedListener(watcher)
         binding.etWeight.addTextChangedListener(watcher)
+    }
+
+    private fun saveCurrentMetrics() {
+        val h = binding.etHeight.text.toString().toDoubleOrNull() ?: 0.0
+        val w = binding.etWeight.text.toString().toDoubleOrNull() ?: 0.0
+        dbHelper.saveMetrics(h, w, isMale)
     }
 
     private fun calculateBMI() {
