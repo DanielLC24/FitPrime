@@ -3,4 +3,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="splash_background">#FFFFFF</color>
+    <color name="turquoise">#00E5FF</color>
+    <color name="toolbar_background">#141218</color>
 </resources>
