@@ -5,4 +5,7 @@
     <color name="splash_background">#FFFFFF</color>
     <color name="turquoise">#00E5FF</color>
     <color name="toolbar_background">#141218</color>
+    <color name="lime_green">#D4FF00</color>
+    <color name="dark_grey">#1E1E1E</color>
+    <color name="timer_grey">#2C2C2C</color>
 </resources>

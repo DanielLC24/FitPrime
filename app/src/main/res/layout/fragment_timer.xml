@@ -1,15 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/toolbar_background"
     tools:context=".ui.timer.TimerFragment">
 
+    <!-- Etiqueta superior estilo píldora -->
     <TextView
+        android:id="@+id/tv_status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Vista de Cronómetro"
-        android:textSize="24sp" />
+        android:layout_marginTop="32dp"
+        android:background="@drawable/bg_pill_lime"
+        android:paddingHorizontal="24dp"
+        android:paddingVertical="8dp"
+        android:text="Al fallo o muere flaco"
+        android:textColor="@color/lime_green"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <!-- Contenedor del Círculo y Tiempo -->
+    <FrameLayout
+        android:id="@+id/timer_container"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        app:layout_constraintBottom_toTopOf="@+id/controls_container"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_status">
+
+        <!-- Círculo de fondo gris -->
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            app:indicatorSize="280dp"
+            app:trackThickness="8dp"
+            app:trackColor="@color/timer_grey"
+            android:progress="100"
+            app:trackCornerRadius="4dp"/>
+
+        <!-- Círculo de progreso Turquesa -->
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/progress_timer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            app:indicatorSize="280dp"
+            app:trackThickness="8dp"
+            app:indicatorColor="@color/turquoise"
+            android:progress="75"
+            app:trackCornerRadius="4dp"
+            app:trackColor="@android:color/transparent"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_timer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00:30"
+                android:textColor="@color/white"
+                android:textSize="72sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_sets"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SET 1 / 8"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:alpha="0.8" />
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <!-- Controles inferiores -->
+    <LinearLayout
+        android:id="@+id/controls_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="48dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_reset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:src="@drawable/ic_reset"
+            app:backgroundTint="@color/timer_grey"
+            app:fabSize="mini"
+            app:tint="@color/white"
+            app:elevation="0dp"
+            app:borderWidth="0dp"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_play_pause"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_play"
+            app:backgroundTint="@color/turquoise"
+            app:fabCustomSize="84dp"
+            app:maxImageSize="40dp"
+            app:tint="@color/black"
+            app:elevation="8dp" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_stop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:src="@drawable/ic_stop"
+            app:backgroundTint="@color/timer_grey"
+            app:fabSize="mini"
+            app:tint="@color/white"
+            app:elevation="0dp"
+            app:borderWidth="0dp"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
