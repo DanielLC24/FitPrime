@@ -68,7 +68,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="WORK PERIOD"
+                android:text="TIEMPO DE TRABAJO"
                 android:textColor="@color/turquoise"
                 android:textSize="14sp"
                 android:textStyle="bold"
@@ -88,7 +88,7 @@
                 android:id="@+id/tv_sets"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Set 3 / 8"
+                android:text="Serie 3 / 8"
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 android:alpha="0.7"
@@ -181,7 +181,7 @@
                     android:layout_height="wrap_content"
                     android:layout_toEndOf="@id/iv_work_icon"
                     android:layout_marginStart="12dp"
-                    android:text="Work Time"
+                    android:text="Duración de Serie"
                     android:textColor="@color/white"
                     android:textSize="20sp"
                     android:textStyle="bold"
@@ -218,14 +218,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="5S"
+                    android:text="5s"
                     android:textColor="#80FFFFFF"
                     android:textSize="10sp"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    android:text="5M"
+                    android:text="5m"
                     android:textColor="#80FFFFFF"
                     android:textSize="10sp"/>
             </RelativeLayout>
